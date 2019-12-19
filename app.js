@@ -19,9 +19,9 @@ app.config(
             });
 		
 			 // for disabling "#"
-			/*  $locationProvider.html5Mode({
+			  $locationProvider.html5Mode({
 				enabled: true
-				});  */
+				});  
 				// for disabling "%2F"
 			$locationProvider.hashPrefix('');
 
