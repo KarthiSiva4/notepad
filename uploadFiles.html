@@ -1,0 +1,58 @@
+<div ng-controller="SampleCtrl">
+
+<form name="uploadForm" ng-submit="upload()">
+      <h3>File Uploader</h3>
+  
+	  <div class="input-group">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile04" onchange="angular.element(this).scope().onChange(this.files)">
+    <label class="custom-file-label nameChange" for="inputGroupFile04">Choose file</label>
+  </div>
+  <div class="input-group-append">
+    <button class="btn btn-success" type="submit">Upload</button>
+  </div>
+</div>
+    </form>
+	
+	<div class="progress" ng-if="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="progress"
+  aria-valuemin="0" aria-valuemax="100" style="width:{{progress}}%">
+    {{progress | number : 0}} %
+  </div>
+</div>
+
+	<br> <br>
+	<div ng-if="numFile!=0">
+	<h3>Uploaded Files</h3>
+	<div style=" margin-bottom: 5px; "><input class="form-control" id="myInput" type="text" placeholder="Search.."></div>
+    <table class="table table-bordered table-striped table-hover compact display">
+    <thead class="thead-light"> 
+      <tr>
+        <th>Upload Date</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr ng-repeat="(key,value) in files">
+        <td>{{value.timestamp | date}}</td>
+        <td>{{value.name}}</td>
+        <td>
+          <a href="{{value.url}}" class="btn btn-primary" target="_blank">Download</a>
+          <a class="btn btn-warning" ng-click="delete(key, value.name)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+    </table></div></div>
+	
+	
+	<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

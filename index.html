@@ -1,0 +1,124 @@
+<html>
+<head>
+<base href="/">
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
+
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script> 
+  <script>
+  // Initialize the Firebase SDK
+  var config = {
+    apiKey: "AIzaSyBltYoB-Wlli7KDf458saUhBCg3ZVBsI2M",
+    authDomain: "notepadajs.firebaseapp.com",
+    databaseURL: "https://notepadajs.firebaseio.com",
+    projectId: "notepadajs",
+    storageBucket: "notepadajs.appspot.com"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="privateController.js"></script>
+<script src="app.js"></script>
+
+
+<style>
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+</style>
+
+
+</head>
+<body ng-app="notepadApp">
+
+
+<header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Copy Paste</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#upload">Upload Files</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="/#private">Private Notes</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+	
+	
+<main role="main" class="container" ng-controller="SampleCtrl">
+
+
+<strong style=" display: block; text-align: center;margin-bottom: 10px; ">Welcome to easy Copy Paste App</strong>
+
+<div ng-view></div>
+
+</main>
+
+
+
+<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Copyright &copy 2020 NotePad App corp</span>
+      </div>
+    </footer>
+
+
+
+</body>
+</html>
