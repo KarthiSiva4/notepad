@@ -4,17 +4,17 @@ app.config(
         function($routeProvider,$locationProvider){
             $routeProvider
 			.when('/',{
-                templateUrl : "./notePad.html"
+                templateUrl : "notePad.html"
             })
 			.when('/upload',{
-                templateUrl : "./uploadFiles.html"
+                templateUrl : "uploadFiles.html"
             })
 			.when('/private',{
-                templateUrl : "./privateNotePad.html",
+                templateUrl : "privateNotePad.html",
 				controller: 'privateController'
             })
 			.when('/privateUserNotepad',{
-                templateUrl : "./privateUserNotes.html",
+                templateUrl : "/privateUserNotes.html",
 				controller: 'privateNotesController'
             });
 		
